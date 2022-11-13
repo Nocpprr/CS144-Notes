@@ -16,7 +16,7 @@ git checkout master # 切回master分支
 git merge lab1-startercode # 合并分支
 ```
 3. Putting substrings in sequence
-![StreamReassembler 的 capacity 示意图]:https://raw.githubusercontent.com/huangrt01/Markdown-Transformer-and-Uploader/mynote/Notes/Computer-Networking-Lab-CS144-Stanford/reassembler.png
+![StreamReassembler 的 capacity 示意图](https://github.com/Nocpprr/CS144-Notes/blob/main/image-20211107124153476.png)
  - 需要注意的是 StreamReassembler 的 capacity 和 ByteStream 的 capacity 是共同的
  - 这意味着push_substring读入的数据不能超过当前已读入数据长度和byte_stream剩余容量的总和
  - 假如上层read了数据，那么byte_stream的容量会得到释放，push_substring可读取的数据也会增加
