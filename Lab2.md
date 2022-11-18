@@ -86,6 +86,9 @@ window size()，这是滑动窗口剩余的大小，相当于fisrt_unaccepted - 
 ```
 size_t TCPReceiver::window_size() const { return _capacity - _reassembler.stream_out().buffer_size(); }
 ```
+在make check_lab2 时，我仍然遇到了问题
+![image](https://user-images.githubusercontent.com/105581407/202742383-28b6e59a-ca8d-4f9e-8b4e-a00efe0129de.png)
+Test 6 无法通过，报的错误很奇怪，不知道怎么修改，debug也无法找到原因,我仍在修改
 
 本节实验主要是对TCP接收方的一些处理，需要理解的就是TCP接收方序列号的变化和滑动窗口的变化。
 一个跟lab1里很相似的细节，有些不连贯的数据发过来后，进入了滑动窗口但是并不被reassembler转发到byte_stream, 所以滑动窗口的左右边界并不变化
