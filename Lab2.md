@@ -93,3 +93,11 @@ Test 6 无法通过，报的错误很奇怪，不知道怎么修改，debug也�
 本节实验主要是对TCP接收方的一些处理，需要理解的就是TCP接收方序列号的变化和滑动窗口的变化。
 一个跟lab1里很相似的细节，有些不连贯的数据发过来后，进入了滑动窗口但是并不被reassembler转发到byte_stream, 所以滑动窗口的左右边界并不变化
 还有就是注意SYN和FIN标志位
+
+更新一下，原来test6的报错是因为数据量太大，代码时间复杂度高了没过，debug后发现是lab1的reassembler有点问题。
+原先是使用的string + map来记录分散的数据段并且去重，但是这样的时间复杂度是nlogn的，甚至由于随时扩容string的原因，时间复杂度会更高
+因此这里采用和ByteStream里相同的方式，用两个环形vector来记录数据，一个用来存数据，一个用来记录数据是否已写入，将复杂度降到On;
+![image](https://user-images.githubusercontent.com/105581407/204532715-1fe5566e-a49b-40ff-af90-74bf13409da1.png)
+![image](https://user-images.githubusercontent.com/105581407/204532856-ea3aae6f-1c35-4046-b769-86499ab8136f.png)
+更改后，test6通过
+
