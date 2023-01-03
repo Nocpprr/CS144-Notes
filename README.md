@@ -8,3 +8,5 @@
 [Lab2: the TCP receiver](https://github.com/Nocpprr/CS144-Notes/blob/main/Lab2.md)
 
 [Lab Checkpoint 3: the TCP sender](https://github.com/Nocpprr/CS144-Notes/blob/main/Lab3.md)
+
+[Lab4: the TCP Connection](https://github.com/Nocpprr/CS144-Notes/blob/main/Lab4.md)
